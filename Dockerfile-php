@@ -1,0 +1,14 @@
+# Use an official PHP image as the base image
+FROM php:7.4-apache
+
+# Install required PHP extensions and libraries
+RUN docker-php-ext-install pdo pdo_mysql
+
+# Set the working directory to your app's document root
+WORKDIR /var/www/html
+
+# Copy your PHP application code into the container
+COPY ./Voting-Management-System/ ./
+
+# Expose the port your Apache server will run on (usually 80)
+EXPOSE 80

@@ -1,0 +1,14 @@
+# Use an official MySQL image as the base image
+FROM mysql:5.7
+
+# Environment variables to configure MySQL (change as needed)
+ENV MYSQL_ROOT_PASSWORD=123
+ENV MYSQL_DATABASE=voting_db
+ENV MYSQL_USER=root
+ENV MYSQL_PASSWORD=Cat!1234
+
+# Copy your MySQL database initialization script into the container
+COPY ./Voting-Management-System/database/voting_db.sql /docker-entrypoint-initdb.d/
+
+# Expose the default MySQL port (usually 3306)
+EXPOSE 3306
